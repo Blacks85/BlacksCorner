@@ -1,4 +1,4 @@
-UserAuth::Application.routes.draw do
+BlacksCorner::Application.routes.draw do
 
 	get "sessions/login"	
 	match "login", :to => "sessions#login"
