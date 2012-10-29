@@ -1,5 +1,7 @@
 BlacksCorner::Application.routes.draw do
-
+	
+	root :controller => 'sessions', :action => 'login'
+	
 	get "sessions/login"	
 	match "login", :to => "sessions#login"
   	get "sessions/home"
