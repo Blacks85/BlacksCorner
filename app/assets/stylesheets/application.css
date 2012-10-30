@@ -10,7 +10,7 @@
  *
  *= require reset.css
  *= require text.css
- *= require 960_12_col.css
+ *= require 960.css
  *= require_self
  *= require_tree .
  */
