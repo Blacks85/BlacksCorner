@@ -9,11 +9,13 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(params[:meal])
     @meal.user_id = @current_user.id
-    
-    # @meal.climate = params[:foods][:mela]
-    @a = Food.first
-    @meal.foods << @a
-    
+    # Aggiunto cibi del pasto
+    params[:foods].each do |i, f|
+      if f == '1'
+        @food = Food.find_by_id(i) 
+        @meal.foods << @food if !@food.nil?
+      end
+    end
     if @meal.save
 			flash[:notice] = "Meal added"
 			flash[:color]= "valid"
@@ -21,7 +23,7 @@ class MealsController < ApplicationController
 			flash[:notice] = "Meal is invalid"
 			flash[:color]= "invalid"
 		end
-	  redirect_to(:action => 'show')
+	  redirect_to :action => 'show'
   end
   
   def show

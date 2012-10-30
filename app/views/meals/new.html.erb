@@ -10,8 +10,18 @@
 		<%= m.date_select :consumed%> </p>	
 		
 		<p>Foods <br/>
-		<% Food.all.each do |f| %>	
-			<%= text_field :foods, f.description, :placeholder => f.description %><%= f.id %><br/>
+		<% Food.order(:description).each do |f| %>	
+			<%= check_box :foods, f.id %><%= f.description %>
+		<% end %></p>
+		
+		<p>Medicine <br/>
+		<% Medicine.order(:description).each do |f| %>	
+			<%= check_box :medicines, f.id %><%= f.description %>
+		<% end %></p>
+		
+		<p>Symptoms <br/>
+		<% Sympton.order(:description).each do |f| %>	
+			<%= check_box :symptons, f.id %><%= f.description %>
 		<% end %></p>
 		
 		<%= m.submit :Add %>
