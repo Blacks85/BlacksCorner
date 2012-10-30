@@ -1,2 +1,17 @@
-<h1>Symptons#new</h1>
-<p>Find me in app/views/symptons/new.html.erb</p>
+<% @page_title = "BlacksCorner | New sympton" %>
+<div class= "Add sympton">
+	<h1>Sign Up</h1>
+	<%= form_for(:sympton, :url => {:controller => 'symptons', :action => 'create'}) do |f| %>
+		<p> Description:</br> 
+		<%= f.text_field :description%> </p>	
+		<%= f.submit :Add %>
+	<% end %>
+
+	<% if @sympton.errors.any? %>
+		<ul class="symptons_Errors">
+			<% for message_error in @sympton.errors.full_messages %>
+				<li>* <%= message_error %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>

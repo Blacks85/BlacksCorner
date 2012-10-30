@@ -1,2 +1,13 @@
-<h1>Medicines#show</h1>
-<p>Find me in app/views/medicines/show.html.erb</p>
+<h1>medicines list</h1>
+
+<% if !@medicines.nil? %>
+	<% @medicines.each do |f| %>
+		<div class="medicine">
+			<%= f.description %>
+			<%= link_to "destroy", delete_medicine_path(:id => f.id) %>
+		</div>
+	<% end %>
+<% end %>
+
+<%= link_to "home", home_path %>
+<%= link_to "Add medicine", add_medicine_path %>

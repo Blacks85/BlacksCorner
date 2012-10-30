@@ -1,20 +1,4 @@
 BlacksCorner::Application.routes.draw do
-	
-  get "symptons/new"
-
-  get "symptons/create"
-
-  get "symptons/show"
-
-  get "symptons/destroy"
-
-  get "medicines/new"
-
-  get "medicines/create"
-
-  get "medicines/show"
-
-  get "medicines/destroy"
 
 	root :controller => 'sessions', :action => 'login'
 	
@@ -39,5 +23,17 @@ BlacksCorner::Application.routes.draw do
   match "create_meal", :to => "meals#create"
   match "show_meals", :to => "meals#show"
   match "delete_meal/:id", :to => "meals#destroy", :as => :delete_meal
+  
+  resources :medicines
+  match "add_medicine", :to => "medicines#new"
+  match "create_medicine", :to => "medicines#create"
+  match "show_medicines", :to => "medicines#show"
+  match "delete_medicine/:id", :to => "medicines#destroy", :as => :delete_medicine
+  
+  resources :symptons
+  match "add_sympton", :to => "symptons#new"
+  match "create_sympton", :to => "symptons#create"
+  match "show_symptons", :to => "symptons#show"
+  match "delete_sympton/:id", :to => "symptons#destroy", :as => :delete_sympton
   	
 end
