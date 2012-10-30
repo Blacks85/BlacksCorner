@@ -14,3 +14,30 @@
  *= require_self
  *= require_tree .
  */
+
+body { 
+	background: #000 url(images/bg.png) repeat; 
+}
+
+.light-bg { 
+	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	text-align: center;
+	box-shadow:5px 5px 10px #000;
+	-webkit-box-shadow:5px 5px 10px #000;
+	-moz-box-shadow: 5px 5px 5px #000;
+	border: 2px solid #a6a6a6;
+}
+
+#Login_Form {
+	margin-top: 50px;
+	padding: 25px;
+}
+
+#error-container {
+	text-align: center;
+	margin-top: 25px;
+	padding: 15px;
+	font-size: 150%;
+}

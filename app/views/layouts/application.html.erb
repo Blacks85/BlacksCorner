@@ -7,9 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<div class="container_12">
+	  	<div id="error-container" class="grid_10 prefix_1">
+			<% if flash[:error] -%>
+			  	<div id="errors">
+					<p class='error'>
+						<%=h flash[:error] %>
+					</p>
+				</div>
+			<% end -%>
+			<% if flash[:notice] -%>
+			  	<div id="notice">
+					<p class='notice'>
+						<%=h flash[:notice] %>
+					</p>
+				</div>
+			<% end -%>
+		</div>
+	</div>
+	
+	<%= yield %>
 
-<%= yield %>
+	<%= debug(params) %>
 
-<%= debug(params) %>
 </body>
 </html>
