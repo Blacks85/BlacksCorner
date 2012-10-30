@@ -9,6 +9,11 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(params[:meal])
     @meal.user_id = @current_user.id
+    
+    # @meal.climate = params[:foods][:mela]
+    @a = Food.first
+    @meal.foods << @a
+    
     if @meal.save
 			flash[:notice] = "Meal added"
 			flash[:color]= "valid"

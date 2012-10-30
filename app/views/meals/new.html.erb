@@ -8,6 +8,12 @@
 		<%= m.number_field :temperature%> </p>
 		<p> Consumed:</br> 
 		<%= m.date_select :consumed%> </p>	
+		
+		<p>Foods <br/>
+		<% Food.all.each do |f| %>	
+			<%= text_field :foods, f.description, :placeholder => f.description %><%= f.id %><br/>
+		<% end %></p>
+		
 		<%= m.submit :Add %>
 	<% end %>
 

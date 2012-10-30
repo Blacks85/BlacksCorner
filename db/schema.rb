@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030135953) do
+ActiveRecord::Schema.define(:version => 20121030145844) do
 
   create_table "foods", :force => true do |t|
     t.string   "description"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20121030135953) do
   create_table "foods_meals", :force => true do |t|
     t.integer  "food_id"
     t.integer  "meal_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "meals", :force => true do |t|
@@ -38,15 +38,15 @@ ActiveRecord::Schema.define(:version => 20121030135953) do
   create_table "meals_medicines", :force => true do |t|
     t.integer  "meal_id"
     t.integer  "medicine_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "meals_symptons", :force => true do |t|
     t.integer  "meal_id"
     t.integer  "sympton_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "medicines", :force => true do |t|
