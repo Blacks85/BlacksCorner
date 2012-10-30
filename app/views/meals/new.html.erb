@@ -3,12 +3,14 @@
 	<h1>Sign Up</h1>
 	<%= form_for(:meal, :url => {:controller => 'meals', :action => 'create'}) do |m| %>
 		<p> Climate:</br> 
-		<%= m.text_field :climate%> </p>
+		<%= m.text_field :climate %> </p>
 		<p> Temperature:</br> 
-		<%= m.number_field :temperature%> </p>
+		<%= m.number_field :temperature %> </p>
 		<p> Consumed:</br> 
-		<%= m.date_select :consumed%> </p>	
-		
+		<%= m.date_select :consumed %> </p>
+		<p> Type:</br> 
+		<%= m.select :meal_type, %w[Breakfast Brunch Lunch Snack Dinner Night Other]%> </p>
+				
 		<p>Foods <br/>
 		<% Food.order(:description).each do |f| %>	
 			<%= check_box :foods, f.id %><%= f.description %>

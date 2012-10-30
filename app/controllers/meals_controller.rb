@@ -42,7 +42,7 @@ class MealsController < ApplicationController
   end
   
   def show
-    @meals = Meal.all
+    @meals = Meal.order(:consumed)
   end
 
   def destroy

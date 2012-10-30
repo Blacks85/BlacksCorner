@@ -9,6 +9,7 @@
 #  consumed    :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  meal_type   :string(255)
 #
 
 require 'test_helper'

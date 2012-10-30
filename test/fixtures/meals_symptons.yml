@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: meals_symptons
+#
+#  id         :integer          not null, primary key
+#  meal_id    :integer
+#  sympton_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:

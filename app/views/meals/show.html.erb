@@ -1,13 +1,28 @@
 <h1>Meals list</h1>
 
+<% tmpDate = 0 %>
 <% if !@meals.nil? %>
-	<% @meals.each do |m| %>
-		<div class="meal">
-			<%= m.climate %>
-			<%= link_to "destroy", delete_meal_path(:id => m.id) %>
-		</div>
-	<% end %>
+	<div class="meal">
+		<% @meals.each do |m| %>
+			<%= ("<br/><h4>#{m.consumed}</h2>").html_safe if tmpDate != m.consumed %>
+			<div class="meal">
+				[<%= link_to "delete", delete_meal_path(:id => m.id) %>]
+				<%= ("<b>#{m.meal_type}:</b> <i>#{m.climate}, #{m.temperature.to_s}°C </i>").html_safe %>				
+				<% m.foods.each do |f| %>
+					<%= f.description %>,
+				<% end %>
+				<% m.medicines.each do |f| %>
+					<%= f.description %>,
+				<% end %>
+				<% m.symptons.each do |f| %>
+					<%= f.description %>,
+				<% end %>
+			</div>			
+			<% tmpDate = m.consumed %>
+		<% end %>
+	</div>
 <% end %>
 
+<br/><br/>
 <%= link_to "home", home_path %>
 <%= link_to "Add meal", add_meal_path %>
