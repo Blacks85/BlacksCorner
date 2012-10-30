@@ -2,16 +2,20 @@ BlacksCorner::Application.routes.draw do
 	
 	root :controller => 'sessions', :action => 'login'
 	
-	get "sessions/login"	
+	resources :sessions
 	match "login", :to => "sessions#login"
-  	get "sessions/home"
 	match "home", :to => "sessions#home"
-  	get "sessions/logout"
 	match "logout", :to => "sessions#logout"	
 	match "login_attempt", :to => "sessions#login_attempt"
   
-  	get "users/new"
-  	match "signup", :to => "users#new"
-  	match "create", :to => "users#create"
+  resources :users
+  match "signup", :to => "users#new"
+  match "create", :to => "users#create"
+  
+  resources :foods
+  match "add_food", :to => "foods#new"
+  match "create_food", :to => "foods#create"
+  match "show_foods", :to => "foods#show"
+  match "delete_food/:id", :to => "foods#destroy", :as => :delete_food
   	
 end

@@ -1,5 +1,11 @@
 <h1>Sessions#home</h1>
 <p>Find me in app/views/sessions/home.html.erb</p>
 
+<div id="home-foods">
+	<h1>Foods</h1>
+	<%= link_to "Add food", add_food_path %>
+	<%= link_to "List food", show_foods_path %>
+</div>
+
 <%= @current_user.username if @current_user %>
 <%= link_to "logout", logout_path %>

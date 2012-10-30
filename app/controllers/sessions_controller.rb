@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 		redirect_to :action => 'login'
 	end
 	
-  	def home
-  	end
+  def home
+  end
 
 end

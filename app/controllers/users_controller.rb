@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   	
-  	before_filter :save_login_state, :only => [:new, :create]
+	before_filter :save_login_state, :only => [:new, :create]
   	
-  	def new
+	def new
 		@user = User.new 
 	end
 	
@@ -17,4 +17,5 @@ class UsersController < ApplicationController
 			end
 		redirect_to :controller => 'sessions', :action => 'login'
 	end
+	
 end
