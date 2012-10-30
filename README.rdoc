@@ -1,3 +1,14 @@
-My little corner... :)
 
-clone...
+#################################################################
+#																#
+#			MEAL, FOODS, SYMPTONS & MEDICINES DIARY				#
+#																#
+#################################################################
+
+Ruby on Rails application realized to track every meal, food, medicine and health sympton 
+to get an overview of relationship between your diet and your health status also comparable 
+with medicines you are taking and environment climate.
+
+Login & registration form to relate all data to current user and - eventually - merge data 
+together for a better statistical overview.
+
