@@ -1,5 +1,21 @@
 BlacksCorner::Application.routes.draw do
 	
+  get "symptons/new"
+
+  get "symptons/create"
+
+  get "symptons/show"
+
+  get "symptons/destroy"
+
+  get "medicines/new"
+
+  get "medicines/create"
+
+  get "medicines/show"
+
+  get "medicines/destroy"
+
 	root :controller => 'sessions', :action => 'login'
 	
 	resources :sessions
