@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  	def authenticate_user
+  def authenticate_user
 		unless session[:user_id]
 			redirect_to(:controller => 'sessions', :action => 'login')
 			return false

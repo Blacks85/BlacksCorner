@@ -1,15 +1,16 @@
-class FoodsController < ApplicationController
+class MealsController < ApplicationController
   
   before_filter :authenticate_user
   
   def new
-    @food = Food.new
+    @meal = Meal.new
   end
-
+  
   def create
-    @food = Food.new(params[:food])
-    if @food.save
-			flash[:notice] = "Food added"
+    @meal = Meal.new(params[:meal])
+    @meal.user_id = @current_user.id
+    if @meal.save
+			flash[:notice] = "Meal added"
 			flash[:color]= "valid"
 		else
 			flash[:notice] = "Meal is invalid"
@@ -19,11 +20,12 @@ class FoodsController < ApplicationController
   end
   
   def show
-    @foods = Food.all
+    @meals = Meal.all
   end
 
   def destroy
-    @food = Food.find_by_id(params[:id]).destroy
+    @meal = Meal.find_by_id(params[:id]).destroy
     redirect_to(:action => 'show')
-  end 
+  end
+  
 end

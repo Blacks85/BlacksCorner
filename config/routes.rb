@@ -17,5 +17,11 @@ BlacksCorner::Application.routes.draw do
   match "create_food", :to => "foods#create"
   match "show_foods", :to => "foods#show"
   match "delete_food/:id", :to => "foods#destroy", :as => :delete_food
+  
+  resources :meals
+  match "add_meal", :to => "meals#new"
+  match "create_meal", :to => "meals#create"
+  match "show_meals", :to => "meals#show"
+  match "delete_meal/:id", :to => "meals#destroy", :as => :delete_meal
   	
 end

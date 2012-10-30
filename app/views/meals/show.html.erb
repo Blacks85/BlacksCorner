@@ -1,0 +1,13 @@
+<h1>Foods list</h1>
+
+<% if !@meals.nil? %>
+	<% @meals.each do |m| %>
+		<div class="meal">
+			<%= m.climate %>
+			<%= link_to "destroy", delete_meal_path(:id => m.id) %>
+		</div>
+	<% end %>
+<% end %>
+
+<%= link_to "home", home_path %>
+<%= link_to "Add meal", add_meal_path %>

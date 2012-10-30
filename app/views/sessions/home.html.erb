@@ -3,8 +3,16 @@
 
 <div id="home-foods">
 	<h1>Foods</h1>	
-	<%= link_to "List food", show_foods_path %>
+	<%= link_to "List foods", show_foods_path %>
 </div>
 
-<%= @current_user.username if @current_user %>
-<%= link_to "logout", logout_path %>
+<div id="home-meals">
+	<h1>Meals</h1>	
+	<%= link_to "List meals", show_meals_path %>
+</div>
+
+<div id="home-other">
+	<h1>Other</h1>
+	<%= @current_user.username if @current_user %>
+	<%= link_to "logout", logout_path %>
+</div>

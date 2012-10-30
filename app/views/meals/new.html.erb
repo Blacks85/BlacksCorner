@@ -1,0 +1,21 @@
+<% @page_title = "BlacksCorner | New meal" %>
+<div class= "Add meal">
+	<h1>Sign Up</h1>
+	<%= form_for(:meal, :url => {:controller => 'meals', :action => 'create'}) do |m| %>
+		<p> Climate:</br> 
+		<%= m.text_field :climate%> </p>
+		<p> Temperature:</br> 
+		<%= m.number_field :temperature%> </p>
+		<p> Consumed:</br> 
+		<%= m.date_select :consumed%> </p>	
+		<%= m.submit :Add %>
+	<% end %>
+
+	<% if @meal.errors.any? %>
+		<ul class="Meals_Errors">
+			<% for message_error in @meal.errors.full_messages %>
+				<li>* <%= message_error %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div> 
