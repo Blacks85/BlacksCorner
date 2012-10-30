@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 	
 	require 'digest/sha1'
 	
+	has_many :meals
+	
 	before_save :encrypt_password
 	after_save :clear_password
 	

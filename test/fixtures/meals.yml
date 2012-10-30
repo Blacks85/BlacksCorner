@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: meals
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  climate     :string(255)
+#  temperature :integer
+#  consumed    :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  climate: MyString
+  temperature: 1
+  consumed: 2012-10-30 12:35:06
+
+two:
+  user_id: 1
+  climate: MyString
+  temperature: 1
+  consumed: 2012-10-30 12:35:06
