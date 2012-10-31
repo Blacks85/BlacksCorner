@@ -15,9 +15,9 @@
  *= require_tree .
  */
 
-body { 
+/*body { 
 	background: #000 url(images/bg.png) repeat; 
-}
+}*/
 
 .light-bg { 
 	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
