@@ -1,29 +1,23 @@
 <div class="grid_12">
-	<div id="Home" class= "light-bg">
-		<div id="home-foods">
-			<h1>Foods</h1>	
-			<%= link_to "List foods", show_foods_path %>
-		</div>
-
-		<div id="home-medicines">
-			<h1>Medicines</h1>	
-			<%= link_to "List medicines", show_medicines_path %>
-		</div>
-
-		<div id="home-symptons">
-			<h1>Symptons</h1>	
-			<%= link_to "List symptons", show_symptons_path %>
-		</div>
-
-		<div id="home-meals">
-			<h1>Meals</h1>	
-			<%= link_to "List meals", show_meals_path %>
-		</div>
-
-		<div id="home-other">
-			<h1>Other</h1>
+	<div id="Home" class= "light-bg round-corners shadow">		
+		<div id="home-other" class="grid_4 prefix_8">
 			<%= @current_user.username if @current_user %>
 			<%= link_to "logout", logout_path %>
 		</div>
+		<div class="clear"></div>		
+		<div class="grid_5 round-corners shadow" id="home-foods" onclick = "window.location.href = '<%= show_foods_path %>'">
+			<h1>Foods</h1>	
+		</div>
+		<div class="grid_5 round-corners shadow" id="home-medicines" onclick = "window.location.href = '<%= show_medicines_path %>'">
+			<h1>Medicines</h1>	
+		</div>		
+		<div class="clear"></div>		
+		<div class="grid_5 round-corners shadow" id="home-symptons" onclick = "window.location.href = '<%= show_symptons_path  %>'">
+				<h1>Symptons</h1>	
+		</div>		
+		<div class="grid_5 round-corners shadow" id="home-meals" onclick = "window.location.href = '<%= show_meals_path %>'">
+			<h1>Meals</h1>	
+		</div>		
+		<div class="clear"></div>
 	</div>
 </div>
