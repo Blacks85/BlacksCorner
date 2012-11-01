@@ -1,13 +1,17 @@
-<h1>symptons list</h1>
+<div class="grid_12">
+	<div id="Symptom" class= "light-bg round-corners shadow">
+		<%= render 'shared/controlbar' %>
+		<h1>symptons list</h1>
 
-<% if !@symptons.nil? %>
-	<% @symptons.each do |f| %>
-		<div class="sympton">
-			<%= f.description %>
-			<%= link_to "destroy", delete_sympton_path(:id => f.id) %>
-		</div>
-	<% end %>
-<% end %>
+		<% if !@symptons.nil? %>
+			<% @symptons.each do |f| %>
+				<div class="sympton">
+					<%= f.description %>
+					<%= link_to "destroy", delete_sympton_path(:id => f.id) %>
+				</div>
+			<% end %>
+		<% end %>
 
-<%= link_to "home", home_path %>
-<%= link_to "Add sympton", add_sympton_path %>
+		<%= link_to "Add sympton", add_sympton_path %>
+	</div>
+</div>

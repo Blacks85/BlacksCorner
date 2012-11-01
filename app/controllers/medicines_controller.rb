@@ -1,5 +1,7 @@
 class MedicinesController < ApplicationController
   
+  before_filter :authenticate_user
+  
   def new
     @medicine = Medicine.new
   end

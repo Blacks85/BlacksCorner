@@ -1,0 +1,10 @@
+<div id="home-title">			
+	<%= @current_user.username if @current_user %>
+</div>
+<div class="round-corners" id="home-logout" onclick = "window.location.href = '<%= logout_path %>'">
+</div>
+<div class="round-corners" id="home-home" onclick = "window.location.href = '<%= home_path %>'">
+</div>
+<div class="round-corners" id="home-settings" onclick = "window.location.href = '#'">
+</div>
+<div class="clear"></div>

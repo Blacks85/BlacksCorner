@@ -19,7 +19,7 @@ class FoodsController < ApplicationController
   end
   
   def show
-    @foods = Food.all
+    @foods = Food.order("description")
   end
 
   def destroy

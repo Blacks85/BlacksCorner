@@ -20,16 +20,27 @@ body {
 	color: white;
 }
 
-#Home {
+#Home, #Food, #Meal, #Medicine, #Symptom {
 	text-align: left;
 	padding: 18px;
 	margin: 15px;
 }
 
-div#home-logout.round-corners {
+div#home-logout, div#home-home, div#home-settings {
 	background: url(images/logout.png) no-repeat right center #fff;
 	height: 40px;
 	margin-bottom: 25px;
+	margin-left: 15px;
+	float: right;
+	width: 45px;
+}
+
+div#home-home {
+	background: url(images/home.png) no-repeat right center #fff;
+}
+
+div#home-settings {
+	background: url(images/settings.png) no-repeat right center #fff;
 }
 
 .light-bg { 
@@ -63,8 +74,15 @@ h1 {
 	color: #ce0016;
 }
 
+#home-title {
+	font-weight: bold;
+	font-size: 24px;
+	float: left;
+	color: #515151;
+}
+
 a {
-	color: #5b0386;
+	color: #970000;
 	text-decoration: none;
 }
 
@@ -104,4 +122,12 @@ div#home-medicines.grid_5.round-corners {
 #notice {
 	color: #db7c0b;
 	font-weight: bold;
+}
+
+#Login-Pic {
+	width: 100px;
+	height: 140px;
+	background: url(images/login.png) no-repeat center #fff;
+	float: left;
+	margin-left: 25px;
 }

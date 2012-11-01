@@ -1,4 +1,7 @@
 class SymptonsController < ApplicationController
+  
+  before_filter :authenticate_user
+  
   def new
     @sympton = Sympton.new
   end

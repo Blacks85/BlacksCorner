@@ -1,11 +1,6 @@
 <div class="grid_12">
 	<div id="Home" class= "light-bg round-corners shadow">		
-		<div id="home-other">			
-			<div class="round-corners" id="home-logout" onclick = "window.location.href = '<%= logout_path %>'">
-				<h1>Welcome, <%= @current_user.username if @current_user %></h1>
-			</div>
-		</div>
-		<div class="clear"></div>		
+		<%= render 'shared/controlbar' %>		
 		<div class="grid_5 round-corners" id="home-foods" onclick = "window.location.href = '<%= show_foods_path %>'">
 		</div>
 		<div class="grid_5 round-corners" id="home-meals" onclick = "window.location.href = '<%= show_meals_path %>'">

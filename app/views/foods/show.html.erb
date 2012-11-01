@@ -1,13 +1,24 @@
-<h1>Foods list</h1>
+<div class="grid_12">
+	<div id="Food" class= "light-bg round-corners shadow">
+		<%= render 'shared/controlbar' %>		
+		<h1>Foods list</h1>
 
-<% if !@foods.nil? %>
-	<% @foods.each do |f| %>
-		<div class="food">
-			<%= f.description %>
-			<%= link_to "destroy", delete_food_path(:id => f.id) %>
-		</div>
-	<% end %>
-<% end %>
-
-<%= link_to "home", home_path %>
-<%= link_to "Add food", add_food_path %>
+		<% if !@foods.nil? %>
+			<% i = 0 %>
+			<% @foods.each do |f| %>
+				<div class="food grid_3">
+					<%= f.description %>
+					<%= link_to "destroy", delete_food_path(:id => f.id) %>
+				</div>
+				<% i += 1 %>
+				<% if i == 3 %>
+					<% i = 0 %>
+					<div class="clear"></div>
+				<% end %>
+			<% end %>
+		<% end %>
+		
+		<div class="clear"></div><br /><br />
+		<%= link_to "Add food", add_food_path %>
+	</div>
+</div>
