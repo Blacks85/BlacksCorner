@@ -22,24 +22,37 @@ body {
 
 #Home {
 	text-align: left;
-	padding: 15px;
+	padding: 18px;
 	margin: 15px;
+}
+
+div#home-logout.round-corners {
+	background: url(images/logout.png) no-repeat right center #fff;
+	height: 40px;
+	margin-bottom: 25px;
 }
 
 .light-bg { 
 	color: black;
-	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
+	background: #000 url(images/light-bg.jpg) repeat; 
+	text-align: center;	
+	border: 2px solid #a6a6a6;
+}
+
+.round-corners {
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	text-align: center;
+}
+
+.shadow {
 	box-shadow:5px 5px 10px #000;
 	-webkit-box-shadow:5px 5px 10px #000;
 	-moz-box-shadow: 5px 5px 5px #000;
-	border: 2px solid #a6a6a6;
 }
 
 #Login_Form {
 	padding: 25px;
+	margin: 15px;
 }
 
 p.notice {
@@ -47,7 +60,7 @@ p.notice {
 }
 
 h1 {
-	color: #9a09c1;
+	color: #ce0016;
 }
 
 a {
@@ -56,17 +69,36 @@ a {
 }
 
 #error-container {	
-	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	text-align: center;
-	box-shadow:5px 5px 10px #000;
-	-webkit-box-shadow:5px 5px 10px #000;
-	-moz-box-shadow: 5px 5px 5px #000;
-	border: 2px solid #a6a6a6;
 	margin: 25px;
 	padding: 15px;
 	font-size: 150%;
+}
+
+#Home div.grid_5 {
+	border: 1px solid #a6a6a6;
+	margin: 15px;
+	box-shadow: 2px 2px 5px #000;
+	-webkit-box-shadow: 2px 2px 5px #000;
+	-moz-box-shadow: 2px 2px 5px #000;
+	background: #fff;
+	height: 150px;
+	width: 400px;
+}
+
+div#home-foods.grid_5.round-corners {
+	background: #fff url(images/food-bg.jpg) repeat;
+}
+
+div#home-meals.grid_5.round-corners {
+	background: #fff url(images/meal-bg.jpg) repeat;
+}
+
+div#home-symptons.grid_5.round-corners {
+	background: #fff url(images/symptom-bg.jpg) repeat;
+}
+
+div#home-medicines.grid_5.round-corners {
+	background: #fff url(images/medicines-bg.jpg) repeat;
 }
 
 #notice {
