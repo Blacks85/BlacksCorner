@@ -15,11 +15,13 @@
  *= require_tree .
  */
 
-/*body { 
+body { 
 	background: #000 url(images/bg.png) repeat; 
-}*/
+	color: white;
+}
 
 .light-bg { 
+	color: black;
 	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
@@ -35,9 +37,28 @@
 	padding: 25px;
 }
 
-#error-container {
+#error-container {	
+	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 	text-align: center;
+	box-shadow:5px 5px 10px #000;
+	-webkit-box-shadow:5px 5px 10px #000;
+	-moz-box-shadow: 5px 5px 5px #000;
+	border: 2px solid #a6a6a6;
 	margin-top: 25px;
 	padding: 15px;
 	font-size: 150%;
+}
+
+#error {
+	color: #ad1600;
+}
+
+#notices {
+	color: #ab8355;
+}
+
+#home {
+	text-align: left;
 }
