@@ -20,6 +20,12 @@ body {
 	color: white;
 }
 
+#Home {
+	text-align: left;
+	padding: 15px;
+	margin: 15px;
+}
+
 .light-bg { 
 	color: black;
 	background: #000 url(images/light-bg.png) repeat; opacity: 0.85;
@@ -33,8 +39,20 @@ body {
 }
 
 #Login_Form {
-	margin-top: 50px;
 	padding: 25px;
+}
+
+p.notice {
+	margin: 0px;
+}
+
+h1 {
+	color: #9a09c1;
+}
+
+a {
+	color: #5b0386;
+	text-decoration: none;
 }
 
 #error-container {	
@@ -46,19 +64,12 @@ body {
 	-webkit-box-shadow:5px 5px 10px #000;
 	-moz-box-shadow: 5px 5px 5px #000;
 	border: 2px solid #a6a6a6;
-	margin-top: 25px;
+	margin: 25px;
 	padding: 15px;
 	font-size: 150%;
 }
 
-#error {
-	color: #ad1600;
-}
-
-#notices {
-	color: #ab8355;
-}
-
-#home {
-	text-align: left;
+#notice {
+	color: #db7c0b;
+	font-weight: bold;
 }
