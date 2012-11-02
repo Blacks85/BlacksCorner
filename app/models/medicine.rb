@@ -12,4 +12,7 @@ class Medicine < ActiveRecord::Base
   attr_accessible :description
   
   has_and_belongs_to_many :meals
+  
+  validates :description, :presence => true, 
+						              :uniqueness => true
 end
