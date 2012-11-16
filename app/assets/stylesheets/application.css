@@ -149,3 +149,34 @@ div#home-medicines.grid_5.round-corners {
     background-color:#222;
     padding:2px 7px;
 }
+
+
+div.alerts {
+	display: inline-block;	
+}
+
+div.symptons-alert-0, div.symptons-alert-1,
+div.symptons-alert-2, div.symptons-alert-3, div.symptons-alert-4, div.symptons-alert-5,
+div.symptons-alert-6, div.symptons-alert-7, div.symptons-alert-8, div.symptons-alert-9,
+div.symptons-alert-10, div.symptons-alert-11, div.symptons-alert-12, div.symptons-alert-13,
+div.symptons-alert-14, div.symptons-alert-15 {
+	height: 30px;
+	width: 30px;
+}
+
+div.symptons-alert-2, div.symptons-alert-3, div.symptons-alert-4, div.symptons-alert-5 {
+	background-image: url(images/yellow-danger.png);
+}
+
+div.symptons-alert-0, div.symptons-alert-1 {
+	background-image: url(images/green-danger.png);
+}
+
+div.symptons-alert-6, div.symptons-alert-7, div.symptons-alert-8, div.symptons-alert-9 {
+	background-image: url(images/red-danger.png);
+}
+
+div.symptons-alert-10, div.symptons-alert-11, div.symptons-alert-12, div.symptons-alert-13,
+div.symptons-alert-14, div.symptons-alert-15 {
+	background-image: url(images/black-danger.png);
+}

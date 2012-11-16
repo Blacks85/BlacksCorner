@@ -7,15 +7,20 @@
 		<br/>
 		
 		<% tmpDate = 0 %>
+		<% tmpSymps = 0 %>
 		<% tmpContent = "" %>
 		<% if !@meals.nil? %>
 			<div class="meal">
 				<% tmpGiorno = 0 %>
 				<% @meals.each do |m| %>
-					<% if tmpDate != m.consumed %>						
+					<% if tmpDate != m.consumed %>												 
 						<% if tmpContent != "" %>
 									<a href="#" title="<%= tmpContent.html_safe %>">show foods</a>
+									<div class="alerts">
+										<%= ("<div class=\"symptons-alert-#{tmpSymps.to_s}\"></div>").html_safe %>
+									</div>
 									<% tmpContent = "" %>
+									<% tmpSymps = 0 %>
 								</div>
 							</div>
 						<% end %>
@@ -25,6 +30,7 @@
 							<br/>
 							<%= ("<div id=\"meal-day\">#{m.consumed.strftime("%Y-%m-%d")}").html_safe %>							
 					<% end %>
+					<% tmpSymps += m.symptons.count %>
 					<% tmpContent += ("<br/>").html_safe if tmpContent != "" %>
 					<% tmpContent += ("<b>#{m.meal_type}:</b> <i>#{m.climate}, #{m.temperature.to_s}°C </i>").html_safe %>
 					<!-- Foods -->
@@ -41,7 +47,11 @@
 					<% end %>
 					<% tmpDate = m.consumed %>
 				<% end %>
-				<a href="#" title="<%= tmpContent.html_safe %>">show foods</a></div></div>
+				<a href="#" title="<%= tmpContent.html_safe %>">show foods</a>
+				<div class="alerts">
+					<%= ("<div class=\"symptons-alert-#{tmpSymps.to_s}\"></div>").html_safe %>
+				</div>
+				</div></div>
 			</div>
 		<% end %>
 
