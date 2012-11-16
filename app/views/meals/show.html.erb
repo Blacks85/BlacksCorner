@@ -2,31 +2,50 @@
 	<div id="Meal" class= "light-bg round-corners shadow">
 		<%= render 'shared/controlbar' %>
 		<h1>Meals list</h1>
-
+		
+		<%= link_to "Add meal", add_meal_path %>
+		<br/>
+		
 		<% tmpDate = 0 %>
+		<% tmpContent = "" %>
 		<% if !@meals.nil? %>
 			<div class="meal">
+				<% tmpGiorno = 0 %>
 				<% @meals.each do |m| %>
-					<%= ("<br/><h4>#{m.consumed}</h2>").html_safe if tmpDate != m.consumed %>
-					<div class="meal">
-						[<%= link_to "delete", delete_meal_path(:id => m.id) %>]
-						<%= ("<b>#{m.meal_type}:</b> <i>#{m.climate}, #{m.temperature.to_s}°C </i>").html_safe %>				
-						<% m.foods.each do |f| %>
-							<%= f.description %>,
+					<% if tmpDate != m.consumed %>						
+						<% if tmpContent != "" %>
+									<a href="#" title="<%= tmpContent.html_safe %>">show foods</a>
+									<% tmpContent = "" %>
+								</div>
+							</div>
 						<% end %>
-						<% m.medicines.each do |f| %>
-							<%= f.description %>,
-						<% end %>
-						<% m.symptons.each do |f| %>
-							<%= f.description %>,
-						<% end %>
-					</div>			
+						<%= ("<div class=\"clear\"></div>").html_safe if tmpGiorno % 3 == 0 %>
+						<% tmpGiorno += 1 %>						
+						<div class="grid_3">							
+							<br/>
+							<%= ("<div id=\"meal-day\">#{m.consumed.strftime("%Y-%m-%d")}").html_safe %>							
+					<% end %>
+					<% tmpContent += ("<br/>").html_safe if tmpContent != "" %>
+					<% tmpContent += ("<b>#{m.meal_type}:</b> <i>#{m.climate}, #{m.temperature.to_s}°C </i>").html_safe %>
+					<!-- Foods -->
+					<% m.foods.each do |f| %>
+						<% tmpContent += "#{f.description} " %>
+					<% end %>
+					<!-- Symptons -->
+					<% m.symptons.each do |f| %>
+						<% tmpContent += "- #{f.description} " %>
+					<% end %>
+					<!-- Medicine -->
+					<% m.medicines.each do |f| %>
+						<% tmpContent += "- #{f.description} " %>
+					<% end %>
 					<% tmpDate = m.consumed %>
 				<% end %>
+				<a href="#" title="<%= tmpContent.html_safe %>">show foods</a></div></div>
 			</div>
 		<% end %>
 
-		<br/><br/>
-		<%= link_to "Add meal", add_meal_path %>
+		<div class="clear"></div><br/>
+		<%= link_to "Add meal", add_meal_path %>		
 	</div>
 </div>
