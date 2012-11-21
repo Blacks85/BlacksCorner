@@ -10,6 +10,8 @@
 		<%= m.date_select :consumed %> </p>
 		<p> Type:</br> 
 		<%= m.select :meal_type, %w[Breakfast Brunch Lunch Snack Dinner Night Other]%> </p>
+		<p> Feci:</br> 
+		<%= m.select :feci, %w[Nothing Solid Average Liquid Diarrea]%> </p>
 				
 		<p>Foods <br/>
 		<% Food.order(:description).each do |f| %>	

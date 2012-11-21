@@ -32,7 +32,7 @@
 					<% end %>
 					<% tmpSymps += m.symptons.count %>
 					<% tmpContent += ("<br/>").html_safe if tmpContent != "" %>
-					<% tmpContent += ("<b>#{m.meal_type}:</b> <i>#{m.climate}, #{m.temperature.to_s}°C </i>").html_safe %>
+					<% tmpContent += ("<b>#{m.meal_type}:</b> <i>#{m.climate}, #{m.temperature.to_s}°C, feci #{m.feci}. </i>").html_safe %>
 					<!-- Foods -->
 					<% m.foods.each do |f| %>
 						<% tmpContent += "#{f.description} " %>
