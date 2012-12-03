@@ -6,7 +6,7 @@ class FoodsController < ApplicationController
     # Autocomplete in formato JSON, per query foods
 	  myFood = Array.new
 		Food.all.each do |f|
-      myFood << [f.description, f.meals.size] if f.meals.size > params[:min].to_i
+      myFood << [f.description, f.meals.size] if f.meals.size >= params[:min].to_i
     end
     myFood.sort! { |a,b| b[1] <=> a[1] }
     respond_to do |format|  

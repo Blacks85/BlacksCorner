@@ -61,6 +61,28 @@ class SessionsController < ApplicationController
     end
   end
   
+  def symptons_food_relationships  
+    # Conto i sintomi di ogni cibo
+    myData = Hash.new
+    Meal.all.each do |m|
+      m.foods.each do |f|
+        myData[f.id] = 0 if myData[f.id].nil?
+        myData[f.id] += m.symptons.size
+      end
+    end  
+    # Medio per quante volte ho mangiato il cibo e riempio l'array
+    myArr = Array.new
+    myData.each do |i, v|
+      tmpFood = Food.find(i)
+      tmpPercentage = (v.to_f / tmpFood.meals.size).round(2)
+      myArr << [tmpFood.description, tmpPercentage, tmpFood.meals.size, myData[i]] if tmpFood.meals.size >= params[:min].to_i
+    end  
+    myArr.sort! { |a,b| b[1] <=> a[1] }
+    respond_to do |format|  
+       format.json { render :json => myArr.to_json }
+    end
+  end
+  
   private
   
     def getMealsDates

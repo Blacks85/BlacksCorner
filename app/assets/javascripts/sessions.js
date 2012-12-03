@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	// Load charts lib
 	google.load("visualization", "1", {packages:["corechart"], "callback":fillCharts});
+	google.load('visualization', '1', {packages:['table'], "callback":fillCharts});
 	
 	// Draw the pie chart
 	function drawChart(theType, theID, theData, theTitle) {
@@ -26,12 +27,20 @@ $(document).ready(function(){
 		chart.draw(data, options);
 	}
 	
+	// Draw table data
+	function drawTableChart(theID, theData) {
+		var table = new google.visualization.Table(document.getElementById(theID));
+        table.draw(theData, {showRowNumber: true});
+	}
+	
 	// Fill the charts
 	function fillCharts() {		
 		// FOODS
 		fillUsedFoodsPieChart(15);
 		// MORE STATISTICS
 		fillStatisticsLineChart("0","1","1","0","0");
+		// Relation between foods and symptons
+		fillFoodsSymptonsTableChart(15);
 	}
 		
 	// FOODS USAGE PIE CHARAT
@@ -46,9 +55,10 @@ $(document).ready(function(){
 		});
 	}
 	
-	// Filter the pie chart, foods usage
+	// Filter the pie chart, foods usage and the table chart
 	$('#foodUsageQuantity').keyup(function() {
 		fillUsedFoodsPieChart($('#foodUsageQuantity').val());
+		fillFoodsSymptonsTableChart($('#foodUsageQuantity').val());
 	});
 	
 	// RELATIONSHIPS LINE CHART
@@ -72,5 +82,20 @@ $(document).ready(function(){
 		var Temps = ($('#Chart_Temps').is(":checked")) ? "1" : "0";		
 		fillStatisticsLineChart(Meals,Symps,Meds,Shits,Temps);
 	});
-				
+	
+	// RELATIONSHIP FOOD/SYMPTONS... LIST CHART
+	
+	function fillFoodsSymptonsTableChart(quantity) {
+		$.getJSON("/sfr.json?min=" + quantity, function(data) {
+			var tmpData = new google.visualization.DataTable();
+	        tmpData.addColumn('string', 'Name');
+	        tmpData.addColumn('number', 'Disease %');
+			tmpData.addColumn('number', 'Symptons');
+			tmpData.addColumn('number', 'Eaten');
+			$.each(data, function(key, val) {
+	    		tmpData.addRows([[val[0].toString(),val[1],val[3],val[2]]]);				
+	  		});	
+			drawTableChart('foodSymptons_Chart', tmpData);			
+		});
+	}
 });
