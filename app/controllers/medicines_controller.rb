@@ -19,7 +19,7 @@ class MedicinesController < ApplicationController
   end
   
   def show
-    @medicines = Medicine.all
+    @medicines = Medicine.order("description")
   end
 
   def destroy

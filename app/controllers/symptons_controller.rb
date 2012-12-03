@@ -19,7 +19,7 @@ class SymptonsController < ApplicationController
   end
   
   def show
-    @symptons = Sympton.all
+    @symptons = Sympton.order("description")
   end
 
   def destroy

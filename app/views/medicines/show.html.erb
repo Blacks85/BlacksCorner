@@ -1,16 +1,17 @@
 <div class="grid_12">
 	<div id="Medicine" class= "light-bg round-corners shadow">
 		<%= render 'shared/controlbar' %>
-		<h1>medicines list</h1>
+		<h1>Medicines list</h1>
 		<% if !@medicines.nil? %>
 			<% @medicines.each do |f| %>
 				<div class="medicine">
 					<%= f.description %>
-					<%= link_to "destroy", delete_medicine_path(:id => f.id) %>
+					<%= link_to "x", delete_medicine_path(:id => f.id), :confirm => "You sure?" %>
 				</div>
 			<% end %>
 		<% end %>
-
+		
+		<div class="clear"></div><br /><br />
 		<%= link_to "Add medicine", add_medicine_path %>
 	</div>
 </div>

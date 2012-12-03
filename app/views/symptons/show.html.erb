@@ -1,17 +1,16 @@
 <div class="grid_12">
 	<div id="Symptom" class= "light-bg round-corners shadow">
 		<%= render 'shared/controlbar' %>
-		<h1>symptons list</h1>
-
+		<h1>Symptons list</h1>
 		<% if !@symptons.nil? %>
 			<% @symptons.each do |f| %>
 				<div class="sympton">
 					<%= f.description %>
-					<%= link_to "destroy", delete_sympton_path(:id => f.id) %>
+					<%= link_to "x", delete_sympton_path(:id => f.id), :confirm => "You sure?" %>
 				</div>
 			<% end %>
-		<% end %>
-
+		<% end %>		
+		<div class="clear"></div><br /><br />
 		<%= link_to "Add sympton", add_sympton_path %>
 	</div>
 </div>
