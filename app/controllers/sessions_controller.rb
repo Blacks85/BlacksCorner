@@ -27,5 +27,40 @@ class SessionsController < ApplicationController
 	
   def home
   end
+  
+  def symptons_medicines_foods_relationships  
+    # Autocomplete in formato JSON, per query
+	  myData = Array.new
+    myDates = getMealsDates
+	  # Count the staff for all day
+	  myDates.each do |d|
+	    tmpMeals = Meal.where("consumed =?", d)
+	    tmpSymps = 0
+	    tmpMeds  = 0
+	    tmpMeals.each do |m|	      
+	      tmpSymps += m.symptons.size
+	      tmpMeds  += m.medicines.size
+	    end
+	    myData << [d.strftime('%d/%m'), tmpMeals.count, tmpSymps, tmpMeds]
+	  end	  	
+    respond_to do |format|  
+       format.json { render :json => myData.to_json }
+    end
+  end
+  
+  private
+  
+    def getMealsDates
+      # Find all day with at least one meal
+  	  myDates = Array.new
+  	  tmpDate = ""
+  	  Meal.all.each do |m|
+  	    if tmpDate != m.consumed
+  	      tmpDate = m.consumed
+  	      myDates << m.consumed
+  	    end
+  	  end
+  	  myDates
+  	end
 
 end

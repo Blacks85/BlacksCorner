@@ -7,6 +7,7 @@ BlacksCorner::Application.routes.draw do
 	match "home", :to => "sessions#home"
 	match "logout", :to => "sessions#logout"	
 	match "login_attempt", :to => "sessions#login_attempt"
+	match "smfr", :to => "sessions#symptons_medicines_foods_relationships"
   
   resources :users
   match "signup", :to => "users#new"

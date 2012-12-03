@@ -3,18 +3,7 @@
 <div class="grid_12">
 	<div id="Food" class= "light-bg round-corners shadow">
 		<%= render 'shared/controlbar' %>		
-		
-		<h1>Foods usage</h1>		
-		<div class="grid_11">
-	    	<div id="chart_div" style="width: 800px; height: 400px;"></div>
-		</div>
-		<div class="clear"></div>
-		<!-- Filtro per quantità -->
-		<div class="grid_3"><input type="text" id="foodUsageQuantity" placeholder="min. quantity"/></div>
-		<div class="grid_3"><a id="FilterPieChart" href="#">Filter chart</a></div>
-		
-		<br /><br /><br />
-		<div class="clear"></div>
+				
 		<h1>Foods list</h1>
 		<% if !@foods.nil? %>
 			<% i = 0 %>
