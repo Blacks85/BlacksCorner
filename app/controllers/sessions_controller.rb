@@ -37,11 +37,24 @@ class SessionsController < ApplicationController
 	    tmpMeals = Meal.where("consumed =?", d)
 	    tmpSymps = 0
 	    tmpMeds  = 0
-	    tmpMeals.each do |m|	      
+	    tmpShits = 0
+	    tmpTemps = 0
+	    tmpMeals.each do |m|	   
+	      tmpShits += 1 if m.feci != "Nothing" and !m.feci.nil?  
+	      tmpTemps += m.temperature
 	      tmpSymps += m.symptons.size
 	      tmpMeds  += m.medicines.size
 	    end
-	    myData << [d.strftime('%d/%m'), tmpMeals.count, tmpSymps, tmpMeds]
+      # Mean the temperature
+      tmpTemps = (tmpTemps / tmpMeals.count) / 5
+      # Keep only user requested data
+      tmpMeals = [] if params[:Meals] != '1'
+      tmpSymps = 0  if params[:Symps] != '1'
+      tmpMeds  = 0  if params[:Meds]  != '1'
+      tmpShits = 0  if params[:Shits] != '1'
+      tmpTemps = 0  if params[:Temps] != '1'
+      # Put data togheter
+	    myData << [d.strftime('%d/%m'), tmpMeals.count, tmpSymps, tmpMeds, tmpShits, tmpTemps]
 	  end	  	
     respond_to do |format|  
        format.json { render :json => myData.to_json }
