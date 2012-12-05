@@ -43,7 +43,9 @@ class SessionsController < ApplicationController
 	      tmpShits += 1 if m.feci != "Nothing" and !m.feci.nil?  
 	      tmpTemps += m.temperature
 	      tmpSymps += m.symptons.size
-	      tmpMeds  += m.medicines.size
+	      m.medicines.all.each do |tmpM|
+	        tmpMeds += tmpM.power
+	      end	      
 	    end
       # Mean the temperature
       tmpTemps = (tmpTemps / tmpMeals.count) / 5

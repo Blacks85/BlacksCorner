@@ -65,11 +65,11 @@ $(document).ready(function(){
 	
 	function fillStatisticsLineChart(Meals, Symps, Meds, Shits, Temps) {
 		$.getJSON("/smfr.json?Meals="+Meals+"&Symps="+Symps+"&Meds="+Meds+"&Shits="+Shits+"&Temps="+Temps, function(data) {
-			var tmpData = [["Day", "Meals", "Symptons", "Medicines", "Shit", "Temperature"]];
+			var tmpData = [["Day", "Meals", "Symptoms", "Medicines", "Shit", "Temperature"]];
 			$.each(data, function(key, val) {
 	    		tmpData.push([val[0].toString(),val[1],val[2],val[3], val[4], val[5]]);	
 	  		});	
-			drawChart('line', 'SymptonsMedicinesRelations', tmpData, "Symptons/Medicines relationships");
+			drawChart('line', 'SymptonsMedicinesRelations', tmpData, "Symptoms/Medicines relationships");
 		});
 	}
 	
@@ -90,7 +90,7 @@ $(document).ready(function(){
 			var tmpData = new google.visualization.DataTable();
 	        tmpData.addColumn('string', 'Name');
 	        tmpData.addColumn('number', 'Disease %');
-			tmpData.addColumn('number', 'Symptons');
+			tmpData.addColumn('number', 'Symptoms');
 			tmpData.addColumn('number', 'Eaten');
 			$.each(data, function(key, val) {
 	    		tmpData.addRows([[val[0].toString(),val[1],val[3],val[2]]]);				

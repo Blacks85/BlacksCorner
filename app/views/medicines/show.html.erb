@@ -5,7 +5,8 @@
 		<% if !@medicines.nil? %>
 			<% @medicines.each do |f| %>
 				<div class="medicine">
-					<%= f.description %>
+					<%= link_to "edit", edit_medicine_path(:id => f.id) %>
+					[<%= f.power %>] <%= f.description %>
 					<%= link_to "x", delete_medicine_path(:id => f.id), :confirm => "You sure?" %>
 				</div>
 			<% end %>

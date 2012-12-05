@@ -1,17 +1,6 @@
 <% @page_title = "BlacksCorner | New sympton" %>
-<div class= "Add sympton">
-	<h1>Sign Up</h1>
-	<%= form_for(:sympton, :url => {:controller => 'symptons', :action => 'create'}) do |f| %>
-		<p> Description:</br> 
-		<%= f.text_field :description%> </p>	
-		<%= f.submit :Add %>
-	<% end %>
-
-	<% if @sympton.errors.any? %>
-		<ul class="symptons_Errors">
-			<% for message_error in @sympton.errors.full_messages %>
-				<li>* <%= message_error %></li>
-			<% end %>
-		</ul>
-	<% end %>
+<%= render 'shared/errors', :object => @sympton %>
+<div class= "Add symptom">
+	<h1>Add symptom</h1>
+	<%= render 'fields', :s => @sympton, :submit_msg => 'Create' %><br />
 </div>

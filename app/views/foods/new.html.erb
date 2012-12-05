@@ -1,17 +1,6 @@
 <% @page_title = "BlacksCorner | New food" %>
+<%= render 'shared/errors', :object => @food %>
 <div class= "Add food">
 	<h1>Sign Up</h1>
-	<%= form_for(:food, :url => {:controller => 'foods', :action => 'create'}) do |f| %>
-		<p> Description:</br> 
-		<%= f.text_field :description%> </p>	
-		<%= f.submit :Add %>
-	<% end %>
-
-	<% if @food.errors.any? %>
-		<ul class="Foods_Errors">
-			<% for message_error in @food.errors.full_messages %>
-				<li>* <%= message_error %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<%= render 'fields', :f => @food, :submit_msg => 'Create' %><br />	
 </div> 

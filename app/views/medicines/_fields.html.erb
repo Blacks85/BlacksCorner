@@ -1,0 +1,7 @@
+<%= form_for(m) do |m| %>
+	<p> Description:</br> 
+	<%= m.text_field :description%> </p>	
+	<p> Power:</br> 
+	<%= m.number_field :power%> </p>
+	<%= m.submit submit_msg %>
+<% end %>

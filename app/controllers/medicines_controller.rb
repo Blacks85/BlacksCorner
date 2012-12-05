@@ -8,14 +8,11 @@ class MedicinesController < ApplicationController
 
   def create
     @medicine = Medicine.new(params[:medicine])
-    if @medicine.save
-			flash[:notice] = "Medicine added"
-			flash[:color]= "valid"
-		else
-			flash[:notice] = "Medicine is invalid"
-			flash[:color]= "invalid"
-		end
-	  redirect_to(:action => 'show')
+    if @medicine.save 
+      redirect_to show_medicines_path, :flash => { :success => "Created new medicine: #{@medicine.description}" }
+    else
+      render 'new'
+    end
   end
   
   def show
@@ -23,8 +20,21 @@ class MedicinesController < ApplicationController
   end
 
   def destroy
-    @medicine = Medicine.find_by_id(params[:id]).destroy
-    redirect_to(:action => 'show')
+    @medicine = Medicine.find(params[:id]).destroy
+    redirect_to show_medicines_path, :flash => { :success => "Deleted medicine: #{@medicine.description}" }
+  end
+  
+  def edit
+    @medicine = Medicine.find(params[:id])
+  end
+  
+  def update
+    @medicine = Medicine.find(params[:id])
+    if @medicine.update_attributes(params[:medicine])
+      redirect_to show_medicines_path, :flash => { :success => "Medicine: #{@medicine.description} updated successful" }
+    else
+      render 'edit'
+    end    
   end
   
 end

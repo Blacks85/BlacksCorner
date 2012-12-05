@@ -21,13 +21,10 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(params[:food])
     if @food.save
-			flash[:notice] = "Food added"
-			flash[:color]= "valid"
+			redirect_to show_foods_path, :flash => { :success => "Created new food: #{@food.description}" }
 		else
-			flash[:notice] = "Meal is invalid"
-			flash[:color]= "invalid"
+			render 'new'
 		end
-	  redirect_to(:action => 'show')
   end
   
   def show
@@ -35,7 +32,20 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = Food.find_by_id(params[:id]).destroy
-    redirect_to(:action => 'show')
+    @food = Food.find(params[:id]).destroy
+    redirect_to show_foods_path, :flash => { :success => "Deleted food: #{@food.description}" }
   end 
+  
+  def edit
+    @food = Food.find(params[:id])
+  end
+  
+  def update
+    @food = Food.find(params[:id])
+    if @food.update_attributes(params[:food])
+      redirect_to show_foods_path, :flash => { :success => "Food: #{@food.description} updated successful" }
+    else
+      render 'edit'
+    end    
+  end
 end

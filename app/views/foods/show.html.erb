@@ -9,6 +9,7 @@
 			<% i = 0 %>
 			<% @foods.each do |f| %>
 				<div class="food grid_3">
+					<%= link_to "edit", edit_food_path(:id => f.id) %>
 					<%= f.description %>
 					<%= link_to "x", delete_food_path(:id => f.id), :confirm => "You sure?" %>
 				</div>

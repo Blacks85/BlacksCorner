@@ -1,20 +1,17 @@
-<% if flash.any? %>
-	<div class="grid_6 prefix_3">
+<% if object.errors.any? %>
+	<div class="grid_8 prefix_2">
 		<div id="error-container" class="light-bg round-corners shadow">
-			<% if flash[:error] -%>
-			  	<div id="errors">
-					<p class='error'>
-						<%=h flash[:error] %>
-					</p>
-				</div>
-			<% end -%>
-			<% if flash[:notice] -%>
-			  	<div id="notice">
-					<p class='notice'>
-						<%=h flash[:notice] %>
-					</p>
-				</div>
-			<% end -%>
+			<h2>
+				<%= pluralize(object.errors.count, "Error") %>
+				prohibited save operation:
+			</h2>
+			<p>There were problem with the following fields:</p>
+			<ul>
+			<% object.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
 		</div>
 	</div>
-<% end%>
+	<div class="clear"></div>
+<% end %>

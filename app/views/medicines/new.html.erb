@@ -1,17 +1,6 @@
 <% @page_title = "BlacksCorner | New medicine" %>
+<%= render 'shared/errors', :object => @medicine %>
 <div class= "Add medicine">
-	<h1>Sign Up</h1>
-	<%= form_for(:medicine, :url => {:controller => 'medicines', :action => 'create'}) do |f| %>
-		<p> Description:</br> 
-		<%= f.text_field :description%> </p>	
-		<%= f.submit :Add %>
-	<% end %>
-
-	<% if @medicine.errors.any? %>
-		<ul class="medicines_Errors">
-			<% for message_error in @medicine.errors.full_messages %>
-				<li>* <%= message_error %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<h1>New medicine</h1>
+	<%= render 'fields', :m => @medicine, :submit_msg => 'Create' %><br />
 </div>
