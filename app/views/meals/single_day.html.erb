@@ -1,0 +1,42 @@
+<%= javascript_include_tag params[:controller] %>
+
+<div class="grid_12">
+	<div id="Meal" class= "light-bg round-corners shadow">
+		<%= render 'shared/controlbar' %>		
+		<%= link_to "Back to all meals", show_meals_path %>
+		<div class="clear"></div><br/>
+		<h1>Meals list for day <%= @meals.first.consumed.strftime("%d/%m/%Y") %></h1>
+		<% @meals.each do |x| %>
+			<h5><%= link_to "[edit] ", edit_meal_path(:id => x.id) %> 
+				<%= link_to "[delete]", delete_meal_path(:id => x.id), :confirm => "You sure?" %>
+				<%= x.meal_type %></h5>
+			<p>
+				<div class="grid_10 prefix_1">
+					<b>Conditions:</b> 
+					<%= "#{x.climate} [#{x.temperature} °C]" %></div>
+				<div class="grid_10 prefix_1">
+					<b>Foods:</b> 
+					<% x.foods.each do |f| %>				
+						<%= "#{f.description}, " %>
+					<% end %>
+				</div>
+				<div class="grid_10 prefix_1">
+					<b>Medicines:</b> 
+					<% x.medicines.each do |f| %>				
+						<%= "#{f.description}, " %>
+					<% end %>
+				</div>
+				<div class="grid_10 prefix_1">
+					<b>Symptons:</b> 
+					<% x.symptons.each do |f| %>				
+						<%= "#{f.description}, " %>
+					<% end %>
+				</div>
+			</p>
+			<div class="clear"></div><br/>
+		<% end %>
+		
+		<div class="clear"></div><br/>
+		<%= link_to "Back to all meals", show_meals_path %>
+	</div>
+</div>

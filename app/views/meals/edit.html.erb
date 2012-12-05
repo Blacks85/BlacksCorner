@@ -1,8 +1,8 @@
-<% @page_title = "BlacksCorner | New meal" %>
+<% @page_title = "BlacksCorner | Edit meal" %>
 <%= render 'shared/errors', :object => @meal %>
-<div class= "Add meal">
+<div class= "Edit meal">
 	<h1>Sign Up</h1>
-	<%= form_for(:meal, :url => {:controller => 'meals', :action => 'create'}) do |m| %>
+	<%= form_for(@meal) do |m| %>
 		<p> Climate:</br> 
 		<%= m.text_field :climate %> </p>
 		<p> Temperature:</br> 
@@ -16,19 +16,25 @@
 				
 		<p>Foods <br/>
 		<% Food.order(:description).each do |f| %>	
-			<%= check_box_tag("foods[#{f.id}]") %><%= f.description %>
+			<%= check_box_tag("foods[#{f.id}]", value = "1", 
+				checked = (Meal.find(params[:id]).food_ids.include? f.id)) %>
+			<%= f.description %>
 		<% end %></p>
 		
 		<p>Medicine <br/>
 		<% Medicine.order(:description).each do |f| %>	
-			<%= check_box_tag("medicines[#{f.id}]") %><%= f.description %>
+			<%= check_box_tag("medicines[#{f.id}]", value = "1",
+			checked = (Meal.find(params[:id]).medicine_ids.include? f.id)) %>
+			<%= f.description %>
 		<% end %></p>
 		
 		<p>Symptoms <br/>
 		<% Sympton.order(:description).each do |f| %>	
-			<%= check_box_tag("symptons[#{f.id}]") %><%= f.description %>
+			<%= check_box_tag("symptons[#{f.id}]", value = "1",
+			checked = (Meal.find(params[:id]).sympton_ids.include? f.id)) %>
+			<%= f.description %>
 		<% end %></p>
 		
-		<%= m.submit :Add %>
+		<%= m.submit :Update %>
 	<% end %>
-</div> 
+</div>

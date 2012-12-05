@@ -6,10 +6,11 @@
 #  description :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  gravity     :integer
 #
 
 class Sympton < ActiveRecord::Base
-  attr_accessible :description
+  attr_accessible :description, :gravity
   
   has_and_belongs_to_many :meals
   

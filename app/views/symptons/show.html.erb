@@ -6,7 +6,7 @@
 			<% @symptons.each do |f| %>
 				<div class="sympton">
 					<%= link_to "edit", edit_sympton_path(:id => f.id) %>
-					<%= f.description %>
+					<%= "[#{f.gravity}]" %> <%= f.description %> 
 					<%= link_to "x", delete_sympton_path(:id => f.id), :confirm => "You sure?" %>
 				</div>
 			<% end %>

@@ -25,6 +25,8 @@ BlacksCorner::Application.routes.draw do
   match "add_meal", :to => "meals#new"
   match "create_meal", :to => "meals#create"
   match "show_meals", :to => "meals#show"
+  match "show_single_day/:id", :to => "meals#single_day", :as => :show_single_day
+  match "edit_meal/:id", :to => "meals#edit", :as => :edit_meal
   match "delete_meal/:id", :to => "meals#destroy", :as => :delete_meal
   
   resources :medicines

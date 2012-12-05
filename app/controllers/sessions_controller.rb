@@ -42,7 +42,9 @@ class SessionsController < ApplicationController
 	    tmpMeals.each do |m|	   
 	      tmpShits += 1 if m.feci != "Nothing" and !m.feci.nil?  
 	      tmpTemps += m.temperature
-	      tmpSymps += m.symptons.size
+	      m.symptons.all.each do |tmpS|
+	        tmpSymps += tmpS.gravity
+        end
 	      m.medicines.all.each do |tmpM|
 	        tmpMeds += tmpM.power
 	      end	      

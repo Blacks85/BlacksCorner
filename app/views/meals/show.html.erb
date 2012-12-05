@@ -17,7 +17,8 @@
 				<% @meals.each do |m| %>
 					<% if tmpDate != m.consumed %>												 
 						<% if tmpContent != "" %>
-									<a href="#" title="<%= tmpContent.html_safe %>">show foods</a>
+									<a href="<%= show_single_day_path(:id => m.id) %>" 
+									   title="<%= tmpContent.html_safe %>">[foods]</a>
 									<div class="alerts">
 										<%= ("<div class=\"symptons-alert-#{tmpSymps.to_s}\"></div>").html_safe %>
 									</div>
@@ -30,7 +31,9 @@
 						<% tmpGiorno += 1 %>						
 						<div class="grid_3">							
 							<br/>
-							<%= ("<div id=\"meal-day\">#{m.consumed.strftime("%Y-%m-%d")}").html_safe %>							
+							<div id="meal-day">
+							<a href="<%= show_single_day_path(:id => m.id) %>">[edit]</a>
+							<%= ("#{m.consumed.strftime("%Y-%m-%d")}").html_safe %>							
 					<% end %>
 					<% tmpSymps += m.symptons.count %>
 					<% tmpContent += ("<br/>").html_safe if tmpContent != "" %>
@@ -49,7 +52,7 @@
 					<% end %>
 					<% tmpDate = m.consumed %>
 				<% end %>
-				<a href="#" title="<%= tmpContent.html_safe %>">show foods</a>
+				<a href="<%= show_single_day_path(:id => Meal.last.id) %>" title="<%= tmpContent.html_safe %>">[foods]</a>
 				<div class="alerts">
 					<%= ("<div class=\"symptons-alert-#{tmpSymps.to_s}\"></div>").html_safe %>
 				</div>
@@ -57,7 +60,7 @@
 			</div>
 		<% end %>
 
-		<div class="clear"></div><br/>
+		<div class="clear"></div><br/><br/>
 		<%= link_to "Add meal", add_meal_path %>		
 	</div>
 </div>
