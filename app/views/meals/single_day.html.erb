@@ -13,7 +13,13 @@
 			<p>
 				<div class="grid_10 prefix_1">
 					<b>Conditions:</b> 
-					<%= "#{x.climate} [#{x.temperature} °C]" %></div>
+					<%= "#{x.temperature} °C" %></div>
+				<div class="grid_10 prefix_1">
+					<b>Blood pressure:</b> 
+					<%= "#{x.bloodpressuremin}:#{x.bloodpressuremax}" %></div>
+				<div class="grid_10 prefix_1">
+					<b>Shit:</b> 
+					<%= "#{x.feci}" %></div>
 				<div class="grid_10 prefix_1">
 					<b>Foods:</b> 
 					<% x.foods.each do |f| %>				

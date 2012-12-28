@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
 	before_filter :authenticate_user, :only => [:home]
 	before_filter :save_login_state, :only => [:login, :login_attempt]
   	
+  def aboutme    
+  end
+  
 	def login
 		render 'login'
 	end

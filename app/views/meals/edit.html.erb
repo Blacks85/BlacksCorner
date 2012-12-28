@@ -3,8 +3,6 @@
 <div class= "Edit meal">
 	<h1>Sign Up</h1>
 	<%= form_for(@meal) do |m| %>
-		<p> Climate:</br> 
-		<%= m.text_field :climate %> </p>
 		<p> Temperature:</br> 
 		<%= m.number_field :temperature %> </p>
 		<p> Consumed:</br> 
@@ -13,7 +11,11 @@
 		<%= m.select :meal_type, %w[Breakfast Brunch Lunch Snack Dinner Night Other]%> </p>
 		<p> Feci:</br> 
 		<%= m.select :feci, %w[Nothing Solid Average Liquid Diarrea]%> </p>
-				
+		<p> Blood pressure min:<br/>
+		<%= m.text_field :bloodpressuremin %> </p>
+		<p> Blood pressure max:<br/>
+		<%= m.text_field :bloodpressuremax %> </p>
+						
 		<p>Foods <br/>
 		<% Food.order(:description).each do |f| %>	
 			<%= check_box_tag("foods[#{f.id}]", value = "1", 
